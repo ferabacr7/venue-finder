@@ -1,0 +1,26 @@
+:root {
+  font-family: "Inter", sans-serif;
+
+  --color-carbon-black: #0a0b0f;
+  --color-deep-onyx: #121318;
+  --color-soft-gold: #c9a86a;
+  --color-ivory: #f8f6f2;
+  --color-slate-gray: #a8b0c0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-carbon-black);
+  color: var(--color-ivory);
+  font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+}

@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+  background-color: #0f1020;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.navbar-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #C9A86A;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 28px;
+}
+
+.navbar-links a {
+  color: #d8d8e8;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.navbar-button {
+  background-color: #C9A86A;
+  color: #0A0B0F;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
