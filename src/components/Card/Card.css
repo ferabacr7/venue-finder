@@ -37,7 +37,7 @@
 .card h1 {
   color: #f8f6f2;
 
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-heading);
 
   font-size: 2rem;
 

@@ -1,9 +1,8 @@
 .hero {
-  min-height: 100vh;
+  min-height: 75vh;
   position: relative;
   display: flex;
-  align-items: flex-start;
-  padding-top: 275px;
+  align-items: center;
 
   background-size: cover;
   background-position: center;
@@ -13,9 +12,9 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 620px;
-  margin-left: 80px;
-
+  width: min(620px, calc(100% - 48px));
+  margin-left: clamp(24px, 6vw, 80px);
+  padding-top: 80px;
 }
 
 .hero-subtitle {
@@ -28,7 +27,7 @@
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-size: clamp(3.2rem, 6vw, 6rem);
   line-height: 0.92;
   font-weight: 600;
   text-align: left;
@@ -46,21 +45,22 @@
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 100vh;
-    padding-top: 140px;
+    align-items: flex-end;
+    padding-bottom: 96px;
+  }
+
+  .hero-content {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    padding-top: 0;
   }
 
   .hero-title {
-    font-size: clamp(2.4rem, 10vw, 4rem);
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
   }
 
   .hero-description {
     font-size: 1rem;
-  }
-
-  .hero .hero-content {
-    width: auto;
-    margin-left: 0;
-    margin-right: 0;
+    line-height: 1.7;
   }
 }

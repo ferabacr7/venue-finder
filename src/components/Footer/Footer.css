@@ -1,15 +1,15 @@
 .footer {
   background: var(--color-black);
   color: var(--color-white);
-  padding: 80px 0 32px;
+  padding: 40px 0 16px;
   border-top: var(--border-gold);
 }
 
 .footer-container {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-
-  gap: 40px;
+  gap: 24px;
+  padding-bottom: 20px;
 }
 
 .footer-brand {
@@ -21,7 +21,7 @@
 .footer-logo {
   color: var(--color-gold);
   font-family: var(--font-heading);
-  font-size: 5rem;
+  font-size: 3.8rem;
   font-weight: 700;
   line-height: 1;
 }
@@ -44,20 +44,16 @@
 .footer-social {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .footer-links h3,
 .footer-social h3 {
   color: var(--color-gold);
-
   font-size: 0.8rem;
-
   letter-spacing: 0.18em;
-
   text-transform: uppercase;
-
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .footer-links a:hover,
@@ -65,10 +61,22 @@
   color: var(--color-gold);
 }
 
+/* Línea divisoria independiente */
+
+.footer-divider {
+  height: 1px;
+  background: rgba(200, 169, 107, 0.15);
+
+  margin-top: 120px; /* distancia desde Contact hacia abajo */
+
+  margin-bottom: 12px; /* distancia desde la línea al copyright */
+}
+
+/* Copyright */
+
 .footer-bottom {
-  margin-top: 110px;
-  padding-top: 32px;
   border-top: 1px solid rgba(200, 169, 107, 0.15);
+  padding-top: 24px;
 }
 
 .footer-bottom p {
@@ -84,5 +92,9 @@
 
   .footer {
     padding: 60px 0 28px;
+  }
+
+  .footer-divider {
+    margin-top: 60px;
   }
 }

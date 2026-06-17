@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import venueService from "../../services/venueService";
 import "./FeaturedVenues.css";
 
@@ -17,7 +18,11 @@ function FeaturedVenues() {
 
         <div className="featured-grid">
           {venues.map((venue) => (
-            <article className="featured-card" key={venue.id}>
+            <Link
+              to={`/venue/${venue.id}`}
+              className="featured-card"
+              key={venue.id}
+            >
               <img src={venue.image} alt={venue.name} />
 
               <div className="featured-card-content">
@@ -30,14 +35,14 @@ function FeaturedVenues() {
                   <span>From ${venue.price}</span>
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 
         <div className="featured-action">
-          <button type="button" className="featured-link">
+          <Link to="/venues" className="featured-link">
             View All Venues →
-          </button>
+          </Link>
         </div>
       </div>
     </section>

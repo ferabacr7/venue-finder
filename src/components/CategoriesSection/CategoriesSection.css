@@ -1,6 +1,6 @@
 .categories {
   background: var(--color-black);
-  padding: 80px 0;
+  padding: 50px 0;
   border-top: var(--border-gold);
   border-bottom: var(--border-gold);
 }
@@ -34,8 +34,8 @@
 
 .category-card {
   text-align: center;
-  padding: 40px 20px;
-  border-right: 1px solid rgba(200, 169, 107, 0.12);
+  padding: 4px 10px;
+  border-right: 1px solid rgba(200, 169, 107, 0.25);
   transition: transform 0.3s ease;
 }
 
@@ -61,11 +61,18 @@
 }
 
 .category-card h3 {
+  font-family: var(--font-body);
+
   color: var(--color-white);
-  font-size: 0.95rem;
-  font-weight: 600;
+
+  font-size: 0.9rem;
+
+  font-weight: 100;
+
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+
+  letter-spacing: 0.14em;
+
   line-height: 1.5;
 }
 

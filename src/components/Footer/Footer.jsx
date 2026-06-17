@@ -30,6 +30,8 @@ function Footer() {
         </div>
       </div>
 
+      <div className="container footer-divider"></div>
+
       <div className="container footer-bottom">
         <p>© 2026 Venue Finder. All rights reserved.</p>
       </div>
