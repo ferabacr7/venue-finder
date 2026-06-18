@@ -3,6 +3,9 @@ import venueService from "../../services/venueService";
 import Card from "../../components/Card/Card";
 import "./Venues.css";
 
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+
 function Venues() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -27,9 +30,13 @@ function Venues() {
 
   return (
     <main className="venues-page">
+      <Navbar />
+
       <section className="venues-hero">
         <p className="venues-kicker">Curated luxury spaces</p>
+
         <h1>Explore Venues</h1>
+
         <p>
           Discover exclusive beachfront venues, private estates, and luxury
           resorts for unforgettable events.
@@ -62,11 +69,26 @@ function Venues() {
         </div>
       </section>
 
+      <section className="venues-results-bar">
+        <p>{filteredVenues.length} Venues Found</p>
+
+        <div className="venues-sort-wrapper">
+          <select className="venues-sort">
+            <option>Featured</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Highest Rated</option>
+          </select>
+        </div>
+      </section>
+
       <section className="venues-grid">
         {filteredVenues.map((venue) => (
           <Card key={venue.id} venue={venue} />
         ))}
       </section>
+
+      <Footer />
     </main>
   );
 }

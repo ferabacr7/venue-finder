@@ -30,8 +30,6 @@ function Card({ venue }) {
         <p>👥 Up to {venue.capacity} guests</p>
 
         <p>💵 ${venue.price}</p>
-
-        <p>{venue.description}</p>
       </div>
     </Link>
   );

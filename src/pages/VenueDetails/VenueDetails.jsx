@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import venueService from "../../services/venueService";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import "./VenueDetails.css";
+
 import {
   Wifi,
   Car,
@@ -13,6 +15,9 @@ import {
   Wind,
   Users,
   Umbrella,
+  Star,
+  MapPin,
+  DollarSign,
 } from "lucide-react";
 
 function VenueDetails() {
@@ -39,418 +44,130 @@ function VenueDetails() {
   };
 
   return (
-    <main
-      style={{
-        background: "#050505",
-        color: "#F8F6F2",
-        minHeight: "100vh",
-      }}
-    >
+    <main className="venue-details-page">
       <Navbar />
 
-      <section
-        style={{
-          position: "relative",
-          height: "720px",
-          maxWidth: "1400px",
-          margin: "0 auto",
-          borderRadius: "24px",
-          overflow: "hidden",
-        }}
-      >
-        <img
-          src={venue.image}
-          alt={venue.name}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        />
+      <section className="venue-details-hero">
+        <img src={venue.image} alt={venue.name} className="venue-hero-image" />
 
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 38%, rgba(0,0,0,0.15) 100%)",
-          }}
-        />
+        <div className="venue-hero-overlay" />
 
-        <div
-          style={{
-            position: "absolute",
-            left: "56px",
-            bottom: "64px",
-            maxWidth: "620px",
-            color: "#F8F6F2",
-          }}
-        >
-          <p
-            style={{
-              color: "#C9A86A",
-              textTransform: "uppercase",
-              letterSpacing: "4px",
-              fontWeight: "700",
-              marginBottom: "18px",
-            }}
-          >
-            {venue.category}
+        <div className="venue-hero-content">
+          <span className="venue-category">{venue.category}</span>
+
+          <h1>{venue.name}</h1>
+
+          <p className="venue-location">
+            <MapPin size={18} />
+            {venue.location}
           </p>
 
-          <h1
-            style={{
-              fontSize: "72px",
-              lineHeight: "0.95",
-              marginBottom: "24px",
-            }}
-          >
-            {venue.name}
-          </h1>
-
-          <p style={{ marginBottom: "16px" }}>📍 {venue.location}</p>
-
-          <p style={{ color: "#C9A86A", marginBottom: "24px" }}>
-            ⭐ {venue.rating} · {venue.reviews} reviews
+          <p className="venue-rating">
+            <Star size={18} fill="currentColor" />
+            {venue.rating} Rating
           </p>
 
-          <p style={{ fontSize: "32px", marginBottom: "32px" }}>
-            Starting at ${venue.price}
+          <div className="venue-hero-actions">
+            <button className="primary-btn">Book This Venue</button>
+            <button className="secondary-btn">Contact Venue</button>
+          </div>
+        </div>
+      </section>
+
+      <section className="venue-facts">
+        <div className="fact-card">
+          <Users size={32} />
+          <span>Guest Capacity</span>
+          <h3>{venue.capacity}</h3>
+          <p>Guests</p>
+        </div>
+
+        <div className="fact-card">
+          <DollarSign size={32} />
+          <span>Price Range</span>
+          <h3>${venue.price}</h3>
+          <p>Starting price</p>
+        </div>
+
+        <div className="fact-card">
+          <Star size={32} />
+          <span>Rating</span>
+          <h3>{venue.rating}</h3>
+          <p>Luxury venue</p>
+        </div>
+
+        <div className="fact-card">
+          <MapPin size={32} />
+          <span>Location</span>
+          <h3>{venue.location}</h3>
+          <p>Costa Rica</p>
+        </div>
+      </section>
+
+      <section className="venue-about">
+        <div>
+          <span className="section-label">About This Venue</span>
+          <h2>
+            Where Nature Meets <br /> Elegance
+          </h2>
+
+          <p>{venue.description}</p>
+
+          <p>
+            Designed for unforgettable weddings, private celebrations and
+            high-end corporate experiences, this venue combines atmosphere,
+            comfort and exclusivity.
           </p>
-
-          <button
-            style={{
-              background: "#C9A86A",
-              color: "#050505",
-              border: "none",
-              padding: "16px 32px",
-              fontWeight: "700",
-              letterSpacing: "1px",
-              cursor: "pointer",
-              marginRight: "16px",
-            }}
-          >
-            INQUIRE NOW
-          </button>
-
-          <button
-            style={{
-              background: "transparent",
-              color: "#F8F6F2",
-              border: "1px solid #C9A86A",
-              padding: "16px 32px",
-              fontWeight: "700",
-              letterSpacing: "1px",
-              cursor: "pointer",
-            }}
-          >
-            CHECK AVAILABILITY
-          </button>
         </div>
+
+        <img src={venue.image} alt={venue.name} />
       </section>
 
-      <section
-        style={{
-          background: "#FFFFFF",
-          color: "#111111",
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "60px",
-          borderRadius: "0 0 24px 24px",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "40px",
-          }}
-        >
-          <div>
-            <p
-              style={{
-                color: "#8A8A8A",
-                fontSize: "12px",
-                letterSpacing: "2px",
-                marginBottom: "12px",
-              }}
-            >
-              CAPACITY
-            </p>
+      <section className="venue-amenities">
+        <span className="section-label">Amenities</span>
 
-            <h3>{venue.capacity} Guests</h3>
-          </div>
-
-          <div>
-            <p
-              style={{
-                color: "#8A8A8A",
-                fontSize: "12px",
-                letterSpacing: "2px",
-                marginBottom: "12px",
-              }}
-            >
-              LOCATION
-            </p>
-
-            <h3>{venue.location}</h3>
-          </div>
-
-          <div>
-            <p
-              style={{
-                color: "#8A8A8A",
-                fontSize: "12px",
-                letterSpacing: "2px",
-                marginBottom: "12px",
-              }}
-            >
-              BEST FOR
-            </p>
-
-            <h3>Luxury Events</h3>
-          </div>
-
-          <div>
-            <p
-              style={{
-                color: "#8A8A8A",
-                fontSize: "12px",
-                letterSpacing: "2px",
-                marginBottom: "12px",
-              }}
-            >
-              PRICE RANGE
-            </p>
-
-            <h3>${venue.price}</h3>
-          </div>
-        </div>
-      </section>
-
-      <section
-        style={{
-          background: "#050505",
-          color: "#F8F6F2",
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "100px 40px",
-        }}
-      >
-        <p
-          style={{
-            color: "#C9A86A",
-            letterSpacing: "3px",
-            fontSize: "12px",
-            fontWeight: "700",
-            marginBottom: "16px",
-          }}
-        >
-          GALLERY
-        </p>
-
-        <h2
-          style={{
-            fontSize: "48px",
-            marginBottom: "40px",
-          }}
-        >
-          A closer look at the experience
-        </h2>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr",
-            gap: "24px",
-            height: "455px",
-          }}
-        >
-          <img
-            src={venue.image}
-            alt={venue.name}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              borderRadius: "24px",
-            }}
-          />
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateRows: "1fr 1fr",
-              gap: "24px",
-            }}
-          >
-            <img
-              src={venue.image}
-              alt={venue.name}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                borderRadius: "24px",
-              }}
-            />
-
-            <img
-              src={venue.image}
-              alt={venue.name}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                borderRadius: "24px",
-              }}
-            />
-          </div>
-        </div>
-      </section>
-
-      <section
-        style={{
-          background: "#050505",
-          color: "#F8F6F2",
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "20px 40px 100px 40px",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1.7fr",
-            gap: "60px",
-            alignItems: "end",
-          }}
-        >
-          <div>
-            <p
-              style={{
-                color: "#C9A86A",
-                letterSpacing: "3px",
-                fontSize: "16px",
-                fontWeight: "700",
-                marginBottom: "16px",
-              }}
-            >
-              ABOUT THE VENUE
-            </p>
-
-            <h2
-              style={{
-                fontSize: "42px",
-                lineHeight: "1.05",
-                marginBottom: "24px",
-              }}
-            >
-              Where Luxury <br />
-              Meets the Ocean
-            </h2>
-
-            <p
-              style={{
-                color: "#D8D8D8",
-                lineHeight: "1.8",
-                marginBottom: "32px",
-                maxWidth: "320px",
-              }}
-            >
-              {venue.description}
-            </p>
-
-            <button
-              style={{
-                background: "transparent",
-                color: "#F8F6F2",
-                border: "1px solid #C9A86A",
-                padding: "16px 32px",
-                fontWeight: "700",
-                letterSpacing: "1px",
-                cursor: "pointer",
-              }}
-            >
-              VIEW VIRTUAL TOUR ▷
-            </button>
-          </div>
-
-          <img
-            src={venue.image}
-            alt={venue.name}
-            style={{
-              width: "100%",
-              height: "320px",
-              objectFit: "cover",
-              borderRadius: "0",
-            }}
-          />
-        </div>
-      </section>
-
-      <section
-        style={{
-          background: "#FFFFFF",
-          color: "#111111",
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "80px 60px",
-        }}
-      >
-        <p
-          style={{
-            color: "#C9A86A",
-            letterSpacing: "3px",
-            fontSize: "12px",
-            fontWeight: "700",
-            marginBottom: "20px",
-          }}
-        >
-          AMENITIES & FEATURES
-        </p>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(5, 1fr)",
-            gap: "30px",
-            marginTop: "40px",
-          }}
-        >
+        <div className="amenities-list">
           {venue.amenities?.map((amenity) => {
             const Icon = amenityIcons[amenity];
 
             return (
-              <div
-                key={amenity}
-                style={{
-                  textAlign: "center",
-                  padding: "20px",
-                }}
-              >
-                {Icon && (
-                  <Icon
-                    size={28}
-                    color="#C9A86A"
-                    style={{
-                      marginBottom: "12px",
-                    }}
-                  />
+              <div className="amenity-item" key={amenity}>
+                {Icon ? (
+                  <Icon size={16} />
+                ) : (
+                  <span className="amenity-fallback-icon">✓</span>
                 )}
-
-                <p
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "500",
-                  }}
-                >
-                  {amenity}
-                </p>
+                <span>{amenity}</span>
               </div>
             );
           })}
         </div>
+      </section>
+
+      <section className="venue-gallery">
+        <span className="section-label">Gallery</span>
+
+        <div className="gallery-grid">
+          <img src={venue.image} alt={venue.name} className="gallery-large" />
+          <img src={venue.image} alt={venue.name} />
+          <img src={venue.image} alt={venue.name} />
+          <img src={venue.image} alt={venue.name} />
+          <img src={venue.image} alt={venue.name} />
+        </div>
+      </section>
+
+      <section className="venue-final-cta">
+        <div>
+          <h2>
+            Ready to host an <br /> unforgettable event?
+          </h2>
+          <p>
+            Check availability, receive a personalized quote and start planning
+            a luxury experience.
+          </p>
+        </div>
+
+        <button className="primary-btn">Book This Venue</button>
       </section>
 
       <Footer />

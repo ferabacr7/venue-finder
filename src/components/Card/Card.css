@@ -39,7 +39,7 @@
 
   font-family: var(--font-heading);
 
-  font-size: 2rem;
+  font-size: 1.6rem;
 
   margin-bottom: 12px;
 }
@@ -55,11 +55,13 @@
 }
 
 .card p {
-  color: #f8f6f2;
+  color: #cfc7ba;
 
-  margin-bottom: 14px;
+  font-size: 0.88rem;
 
-  line-height: 1.5;
+  margin-bottom: 10px;
+
+  line-height: 1.4;
 }
 
 .featured-badge {
